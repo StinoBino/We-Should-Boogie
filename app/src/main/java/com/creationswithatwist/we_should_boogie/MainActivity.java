@@ -61,14 +61,25 @@ public class MainActivity extends AppCompatActivity {
                 {
                     public void onClick(View view)
                     {
-                        Player player1 = new Player(inputPlayerOne.getText().toString(), adjactivePlayerOne);
-                        alertDialog.setMessage(player1.name);
-                        alertDialog.show();
 
-                        Player player2 = new Player(inputPlayerTwo.getText().toString(), adjactivePlayerTwo);
-                        alertDialog.setMessage(player2.name);
-                        alertDialog.show();
+                        if(inputPlayerOne.getText().toString() == ""){
+                            alertDialog.setMessage("Insert the name of your date you dummy");
+                            alertDialog.show();
+                        } else {
+                            Player player1 = new Player(inputPlayerOne.getText().toString(), adjactivePlayerOne);
+                            alertDialog.setMessage(player1.name);
+                            alertDialog.show();
+                        }
 
+                        if(inputPlayerTwo.getText().toString() == "") {
+                            alertDialog.setMessage(
+                                    "You forgot your own name... Nerves, am I right?");
+                            alertDialog.show();
+                        } else {
+                            Player player2 = new Player(inputPlayerTwo.getText().toString(), adjactivePlayerTwo);
+                            alertDialog.setMessage(player2.name);
+                            alertDialog.show();
+                        }
                     }
                 });
         buttonWard.setOnClickListener(
