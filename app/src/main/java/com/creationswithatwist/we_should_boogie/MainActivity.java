@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         final EditText inputPlayerOne = new EditText(this.getApplicationContext());
+        inputPlayerOne.setHint("The name of your date first, you smug.");
         linearWrapper.addView(inputPlayerOne);
 
         final EditText inputPlayerTwo = new EditText(this.getApplicationContext());
+        inputPlayerTwo.setHint("Now it's your time to shine!");
         linearWrapper.addView(inputPlayerTwo);
 
         Button button = new Button(this.getApplicationContext());
