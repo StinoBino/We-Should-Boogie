@@ -1,6 +1,7 @@
 package com.creationswithatwist.we_should_boogie;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout linearWrapper;
     int adjactivePlayerOne;
     int adjactivePlayerTwo;
+
+    Button buttonWard;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         while (adjactivePlayerOne == adjactivePlayerTwo) {
             adjactivePlayerTwo = rand.nextInt(4);
         }
+
+        buttonWard = new Button(this.getApplicationContext());
 
         final EditText inputPlayerOne = new EditText(this.getApplicationContext());
         inputPlayerOne.setHint("The name of your date first, you smug.");
@@ -50,5 +55,16 @@ public class MainActivity extends AppCompatActivity {
                         Player player2 = new Player(inputPlayerTwo.getText().toString(), adjactivePlayerTwo);
                     }
                 });
+        buttonWard.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        Intent intent = new Intent(getBaseContext(), GameActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        linearWrapper.addView(buttonWard);
+
     }
 }
