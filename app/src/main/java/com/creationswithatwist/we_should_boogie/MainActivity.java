@@ -1,5 +1,6 @@
 package com.creationswithatwist.we_should_boogie;
 
+import android.drm.DrmStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -15,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         linearWrapper = (LinearLayout) findViewById(R.id.linear_wrapper);
         Button button = new Button(this.getApplicationContext());
-        
 
+        Card card1 = new Card("black");
+
+        button.setText(card1.getAction());
+
+        linearWrapper.addView(button);
     }
 }
