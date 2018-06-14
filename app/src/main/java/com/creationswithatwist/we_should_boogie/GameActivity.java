@@ -17,6 +17,7 @@ public class GameActivity extends AppCompatActivity{
 
     TextView question;
     TextView debug;
+    float x1,x2;
     private GestureDetector mDetector;
 
     @SuppressWarnings("deprecation")
@@ -31,17 +32,19 @@ public class GameActivity extends AppCompatActivity{
 
 
         question.setOnTouchListener(new View.OnTouchListener() {
+            @Override
             public boolean onTouch(View v, MotionEvent event) {
-                final float MIN_DISTANCE = 150;
-                float x1 = 0;
-                float x2 = 0;
+                final float MIN_DISTANCE = 350;
+
                 switch(event.getAction())
                 {
                     case MotionEvent.ACTION_DOWN:
                         x1 = event.getX();
                         break;
                     case MotionEvent.ACTION_UP:
+                        question.performClick();
                         x2 = event.getX();
+                        debug.setText("x1: " + x1 + ". x2: " +x2);
                         if (x2 - x1 > MIN_DISTANCE)
                         {
                             //RIGHT
@@ -58,6 +61,7 @@ public class GameActivity extends AppCompatActivity{
                 return true;
             }
         });
+
 
 
     }
