@@ -16,6 +16,7 @@ public class GameActivity extends AppCompatActivity{
     private static final String TAG = "MainActivity";
 
     TextView question;
+    TextView debug;
     private GestureDetector mDetector;
 
     @SuppressWarnings("deprecation")
@@ -25,15 +26,37 @@ public class GameActivity extends AppCompatActivity{
         setContentView(R.layout.activity_game);
         question = (TextView) findViewById(R.id.question);
         question.setBackgroundColor(Color.parseColor("#22000000"));
+        debug = (TextView) findViewById(R.id.debug);
+        debug.setBackgroundColor(Color.parseColor("#66000000"));
 
 
         question.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                Log.e("ward","test");
+            public boolean onTouch(View v, MotionEvent event) {
+                final float MIN_DISTANCE = 150;
+                float x1 = 0;
+                float x2 = 0;
+                switch(event.getAction())
+                {
+                    case MotionEvent.ACTION_DOWN:
+                        x1 = event.getX();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        x2 = event.getX();
+                        if (x2 - x1 > MIN_DISTANCE)
+                        {
+                            //RIGHT
+                            debug.setText("RIGHT");
+                        }
+                        if (x1 - x2 > MIN_DISTANCE)
+                        {
+                            //LEFT
+                            debug.setText("LEFT");
+
+                        }
+                        break;
+                }
                 return true;
             }
-
         });
 
 
