@@ -36,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText inputPlayerOne = new EditText(this.getApplicationContext());
         inputPlayerOne.setHint("The name of your date first, you smug.");
+        inputPlayerOne.setTextColor(0x917f7);
         linearWrapper.addView(inputPlayerOne);
 
         final EditText inputPlayerTwo = new EditText(this.getApplicationContext());
         inputPlayerTwo.setHint("Now it's your time to shine!");
+        inputPlayerOne.setTextColor(0x917f7);
         linearWrapper.addView(inputPlayerTwo);
 
         Button button = new Button(this.getApplicationContext());
