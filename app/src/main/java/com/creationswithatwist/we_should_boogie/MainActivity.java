@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         linearWrapper = (LinearLayout) findViewById(R.id.linear_wrapper);
 
         Random rand = new Random();
-        adjactivePlayerOne = rand.nextInt(0 - 4);
-        adjactivePlayerTwo = rand.nextInt(0 - 4);
+        adjactivePlayerOne = rand.nextInt(4);
+        adjactivePlayerTwo = rand.nextInt(4);
         while (adjactivePlayerOne == adjactivePlayerTwo) {
-            adjactivePlayerTwo = rand.nextInt(0 - 4);
+            adjactivePlayerTwo = rand.nextInt(4);
         }
 
         final EditText inputPlayerOne = new EditText(this.getApplicationContext());
