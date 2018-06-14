@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Player {
 
-    private String name;
+    public String name;
     private String[] Adjective = new String[]{"Cute", "Cuddly", "Sweet", "Tough", "Funny"};
 
     public Player (String name, int i) {
