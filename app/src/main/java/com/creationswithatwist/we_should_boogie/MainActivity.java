@@ -23,14 +23,16 @@ public class MainActivity extends AppCompatActivity {
         linearWrapper = (LinearLayout) findViewById(R.id.linear_wrapper);
 
         Random rand = new Random();
-        adjactivePlayerOne = rand.nextInt(0 - 4);
-        adjactivePlayerTwo = rand.nextInt(0 - 4);
+        adjactivePlayerOne = rand.nextInt(4);
+        adjactivePlayerTwo = rand.nextInt(4);
         while (adjactivePlayerOne == adjactivePlayerTwo) {
-            adjactivePlayerTwo = rand.nextInt(0 - 4);
+            adjactivePlayerTwo = rand.nextInt(4);
         }
 
         final EditText inputPlayerOne = new EditText(this.getApplicationContext());
+        linearWrapper.addView(inputPlayerOne);
         final EditText inputPlayerTwo = new EditText(this.getApplicationContext());
+        linearWrapper.addView(inputPlayerTwo);
         Button button = new Button(this.getApplicationContext());
         button.setText("Let's Boogie");
         linearWrapper.addView(button);
