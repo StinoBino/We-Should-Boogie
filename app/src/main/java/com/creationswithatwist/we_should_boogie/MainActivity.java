@@ -2,6 +2,8 @@ package com.creationswithatwist.we_should_boogie;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,8 +18,10 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout linearWrapper;
     int adjactivePlayerOne;
     int adjactivePlayerTwo;
-
+    AlertDialog.Builder alertDialog;
+    Color color;
     Button buttonWard;
+
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +39,22 @@ public class MainActivity extends AppCompatActivity {
         buttonWard = new Button(this.getApplicationContext());
 
         final EditText inputPlayerOne = new EditText(this.getApplicationContext());
+        inputPlayerOne.setTextColor(color.parseColor("#595959"));
         inputPlayerOne.setHint("The name of your date first, you smug.");
-        inputPlayerOne.setTextColor(0x917f7);
+        inputPlayerOne.setHintTextColor(color.parseColor("#8c8c8c"));
         linearWrapper.addView(inputPlayerOne);
 
         final EditText inputPlayerTwo = new EditText(this.getApplicationContext());
+        inputPlayerTwo.setTextColor(color.parseColor("#595959"));
         inputPlayerTwo.setHint("Now it's your time to shine!");
-        inputPlayerOne.setTextColor(0x917f7);
+        inputPlayerTwo.setHintTextColor(color.parseColor("#8c8c8c"));
         linearWrapper.addView(inputPlayerTwo);
 
         Button button = new Button(this.getApplicationContext());
         button.setText("Let's Boogie");
         linearWrapper.addView(button);
+
+        alertDialog = new AlertDialog.Builder(this);
 
         button.setOnClickListener(
                 new View.OnClickListener()
@@ -54,7 +62,13 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         Player player1 = new Player(inputPlayerOne.getText().toString(), adjactivePlayerOne);
+                        alertDialog.setMessage(player1.name);
+                        alertDialog.show();
+
                         Player player2 = new Player(inputPlayerTwo.getText().toString(), adjactivePlayerTwo);
+                        alertDialog.setMessage(player2.name);
+                        alertDialog.show();
+
                     }
                 });
         buttonWard.setOnClickListener(
