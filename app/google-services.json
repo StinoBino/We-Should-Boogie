@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "658997749941",
+    "firebase_url": "https://we-should-boogie.firebaseio.com",
+    "project_id": "we-should-boogie",
+    "storage_bucket": "we-should-boogie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658997749941:android:3c38fdc83a8570ec",
+        "android_client_info": {
+          "package_name": "com.creationswithatwist.we_should_boogie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658997749941-11idl5p5ja6thscqsfchid9oo0n0g953.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.creationswithatwist.we_should_boogie",
+            "certificate_hash": "4619d2874285efd03876fb0365a3e72783ec4dcc"
+          }
+        },
+        {
+          "client_id": "658997749941-5hk3ddtn37g88nstnq0e45mognmaaj81.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "658997749941-5hk3ddtn37g88nstnq0e45mognmaaj81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMnKMAyF0eJFE0G8Uj2ToD_aRtLaBjlvQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658997749941-5hk3ddtn37g88nstnq0e45mognmaaj81.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
