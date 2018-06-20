@@ -1,24 +1,31 @@
 package com.creationswithatwist.we_should_boogie;
 
 import android.graphics.Color;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+import android.util.Log;
+import android.widget.LinearLayout;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class GameActivity extends AppCompatActivity{
-    private static final String TAG = "MainActivity";
-
     TextView question;
     TextView debug;
     float x1,x2;
     private GestureDetector mDetector;
+    FirebaseFirestore db;
+    String TAG;
 
     @SuppressWarnings("deprecation")
     @Override
@@ -29,6 +36,26 @@ public class GameActivity extends AppCompatActivity{
         question.setBackgroundColor(Color.parseColor("#22000000"));
         debug = (TextView) findViewById(R.id.debug);
         debug.setBackgroundColor(Color.parseColor("#66000000"));
+
+        //=========================================================================
+        db = FirebaseFirestore.getInstance();
+        TAG = "Main Activity";
+
+        db.collection("Questions")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (DocumentSnapshot document : task.getResult()) {
+                                Log.d(TAG, document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.w(TAG, "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+        //=========================================================================
 
 
         question.setOnTouchListener(new View.OnTouchListener() {
